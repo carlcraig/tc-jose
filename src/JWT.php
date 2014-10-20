@@ -108,10 +108,11 @@ class JWT
     /**
      * Validates the JWT, will be overridden by JWS and JWE to verify or decrypt before checking JWT validity
      *
+     * @param string $key
      * @param bool $checkExpires
      * @return bool
      */
-    public function validate($checkExpires = true)
+    public function validate($key = '', $checkExpires = true)
     {
         return $checkExpires ? ! $this->isExpired() : true;
     }

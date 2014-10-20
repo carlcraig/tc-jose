@@ -107,13 +107,13 @@ class JWS extends JWT
     /**
      * Override JWT Validate Method, to Verify JWS before calling JWT validate
      *
-     * @param bool $key
+     * @param string $key
      * @param bool $checkExpires
      * @return bool
      */
-    public function validate($key, $checkExpires = true)
+    public function validate($key = '', $checkExpires = true)
     {
-        return $this->verify($key) ? parent::validate($checkExpires) : false;
+        return $this->verify($key) ? parent::validate($key, $checkExpires) : false;
     }
 
     /**
