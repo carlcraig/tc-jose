@@ -102,7 +102,10 @@ class JWT
      */
     public function isExpired()
     {
-        return isset($this->payload['exp']) ? new \DateTime('now') > \DateTime::createFromFormat('U', $this->payload['exp']) : false;
+        return isset($this->payload['exp']) ? new \DateTime('now') > \DateTime::createFromFormat(
+                'U',
+                $this->payload['exp']
+            ) : false;
     }
 
     /**
@@ -114,7 +117,7 @@ class JWT
      */
     public function validate($key = '', $checkExpires = true)
     {
-        return $checkExpires ? ! $this->isExpired() : true;
+        return $checkExpires ? !$this->isExpired() : true;
     }
 
     /**
@@ -148,6 +151,7 @@ class JWT
                 $jws->setHeader(JSON::decode(Base64Url::decode($parts[0])));
                 $jws->setPayload(JSON::decode(Base64Url::decode($parts[1])));
                 $jws->setSignature(Base64Url::decode($parts[2]));
+
                 return $jws;
             } catch (JSONException $e) {
                 throw new InvalidArgumentException('The JWS is Invalid or Malformed');

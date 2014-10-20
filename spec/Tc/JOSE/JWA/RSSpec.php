@@ -16,19 +16,29 @@ class RSSpec extends ObjectBehavior
 {
     function it_should_not_be_constructed_without_bits()
     {
-        $this->shouldThrow(new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512'))->during__construct(null);
+        $this->shouldThrow(
+            new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512')
+        )->during__construct(null);
     }
 
     function it_should_only_be_constructed_with_valid_bits()
     {
-        $this->shouldNotThrow(new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512'))->during__construct('256');
-        $this->shouldNotThrow(new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512'))->during__construct('384');
-        $this->shouldNotThrow(new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512'))->during__construct('512');
+        $this->shouldNotThrow(
+            new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512')
+        )->during__construct('256');
+        $this->shouldNotThrow(
+            new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512')
+        )->during__construct('384');
+        $this->shouldNotThrow(
+            new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512')
+        )->during__construct('512');
     }
 
     function it_should_not_be_constructed_with_invalid_bits()
     {
-        $this->shouldThrow(new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512'))->during__construct('InvalidBits');
+        $this->shouldThrow(
+            new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512')
+        )->during__construct('InvalidBits');
     }
 
     function it_should_verify_a_valid_signature_using_256_bits()
@@ -80,7 +90,7 @@ class RSSpec extends ObjectBehavior
 
     function let()
     {
-        $publicKey=<<<EOD
+        $publicKey = <<<EOD
 -----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAo+ppLsHjUbRrzMC1HOY4
 RbP4Agy1HvOH7KW6s8EKhYif5ik/xT1OUZAgeP+yuyS9NKPLc6Bjky2gGh5aadQI
@@ -97,7 +107,7 @@ vLtJ1EOkJlT5coeLn+yEHxcCAwEAAQ==
 -----END PUBLIC KEY-----
 EOD;
 
-        $privateKey=<<<EOD
+        $privateKey = <<<EOD
 -----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED
 DEK-Info: AES-256-CBC,1FCF0B80B6F779952131272A5D7DCF72
@@ -154,7 +164,7 @@ u1EMH5eR+gjTbtmBUpWW44hfW31bY9JRmxruz4/p8BwvY0SdcIIz70Gf5SzwabgK
 -----END RSA PRIVATE KEY-----
 EOD;
 
-        $publicKeyInvalid=<<<EOD
+        $publicKeyInvalid = <<<EOD
 -----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAo+ppLsHjUbRrzMC1HOY4
 RbP4Agy1HvOH7KW6s8EKhYif5ik/xT1OUZAgeP+yuyS9NKPLc6Bjky2gGh5aadQI

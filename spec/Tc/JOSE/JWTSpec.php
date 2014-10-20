@@ -58,19 +58,25 @@ class JWTSpec extends ObjectBehavior
     function it_should_not_decode_an_invalid_jws_token()
     {
         $invalidJOSE = '1.2.3';
-        $this->shouldThrow(new \InvalidArgumentException('The JWS is Invalid or Malformed'))->duringDecode($invalidJOSE);
+        $this->shouldThrow(new \InvalidArgumentException('The JWS is Invalid or Malformed'))->duringDecode(
+            $invalidJOSE
+        );
     }
 
     function it_should_not_decode_an_invalid_jose_token()
     {
         $invalidJOSE = '1';
-        $this->shouldThrow(new \InvalidArgumentException('The JOSE token is Invalid or Malformed'))->duringDecode($invalidJOSE);
+        $this->shouldThrow(new \InvalidArgumentException('The JOSE token is Invalid or Malformed'))->duringDecode(
+            $invalidJOSE
+        );
     }
 
     function it_should_not_decode_a_jwe_token_as_it_is_not_supported()
     {
         $invalidJOSE = '1.2.3.4.5';
-        $this->shouldThrow(new \InvalidArgumentException('The JOSE token is a JWE which is currently not supported'))->duringDecode($invalidJOSE);
+        $this->shouldThrow(
+            new \InvalidArgumentException('The JOSE token is a JWE which is currently not supported')
+        )->duringDecode($invalidJOSE);
     }
 
     function it_should_allow_expires_claim_to_be_set_with_seconds()

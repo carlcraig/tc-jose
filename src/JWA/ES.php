@@ -18,7 +18,7 @@ class ES implements JWAInterface
      */
     public function __construct($bits)
     {
-        $bits = (string) $bits;
+        $bits = (string)$bits;
         if ($bits !== '256' && $bits !== '384' && $bits !== '512') {
             throw new \InvalidArgumentException('Invalid JWA bits, allowed: 256, 384 or 512');
         }
@@ -46,6 +46,7 @@ class ES implements JWAInterface
     {
         $signature = null;
         openssl_sign($input, $signature, $key, $this->hashAlgorithm);
+
         return $signature;
     }
 
@@ -54,6 +55,6 @@ class ES implements JWAInterface
      */
     public function verify($key, $signature, $input)
     {
-        return (bool) openssl_verify($input, $signature, $key, $this->hashAlgorithm);
+        return (bool)openssl_verify($input, $signature, $key, $this->hashAlgorithm);
     }
 }

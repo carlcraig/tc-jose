@@ -27,6 +27,7 @@ class JSON
         } elseif ($encoded === 'null' && $input !== null) {
             throw new JSONException('Null encoded result');
         }
+
         return $encoded;
     }
 
@@ -45,6 +46,7 @@ class JSON
         } elseif ($object === null) {
             throw new JSONException('Null decoded result.');
         }
+
         return $object;
     }
 

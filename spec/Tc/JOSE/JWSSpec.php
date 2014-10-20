@@ -77,7 +77,9 @@ class JWSSpec extends ObjectBehavior
 
     function it_should_now_allow_signing_with_unknown_algorithm()
     {
-        $exception = new JWAException('Unsupported JWA, Allowed Algorithms: HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512');
+        $exception = new JWAException(
+            'Unsupported JWA, Allowed Algorithms: HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, ES512'
+        );
         $this->shouldThrow($exception)->duringSign('INVALID', '');
         $this->shouldNotThrow($exception)->duringSign('none', '');
     }
@@ -125,7 +127,7 @@ class JWSSpec extends ObjectBehavior
 
     function let()
     {
-        $publicKey=<<<EOD
+        $publicKey = <<<EOD
 -----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAo+ppLsHjUbRrzMC1HOY4
 RbP4Agy1HvOH7KW6s8EKhYif5ik/xT1OUZAgeP+yuyS9NKPLc6Bjky2gGh5aadQI
@@ -142,7 +144,7 @@ vLtJ1EOkJlT5coeLn+yEHxcCAwEAAQ==
 -----END PUBLIC KEY-----
 EOD;
 
-        $privateKey=<<<EOD
+        $privateKey = <<<EOD
 -----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED
 DEK-Info: AES-256-CBC,1FCF0B80B6F779952131272A5D7DCF72
@@ -199,7 +201,7 @@ u1EMH5eR+gjTbtmBUpWW44hfW31bY9JRmxruz4/p8BwvY0SdcIIz70Gf5SzwabgK
 -----END RSA PRIVATE KEY-----
 EOD;
 
-        $publicKeyInvalid=<<<EOD
+        $publicKeyInvalid = <<<EOD
 -----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAo+ppLsHjUbRrzMC1HOY4
 RbP4Agy1HvOH7KW6s8EKhYif5ik/xT1OUZAgeP+yuyS9NKPLc6Bjky2gGh5aadQI

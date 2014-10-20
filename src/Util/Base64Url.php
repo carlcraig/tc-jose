@@ -29,6 +29,8 @@ class Base64Url
      */
     public static function decode($data)
     {
-        return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data)+(strlen($data) % 4), '=', STR_PAD_RIGHT));
+        return base64_decode(
+            str_pad(strtr($data, '-_', '+/'), strlen($data) + (strlen($data) % 4), '=', STR_PAD_RIGHT)
+        );
     }
 }
