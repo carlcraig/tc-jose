@@ -1,0 +1,4 @@
+suites:
+    tc_jose_suite:
+        namespace: Tc\JOSE
+        psr4_prefix: Tc\JOSE
