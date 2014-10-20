@@ -1,6 +1,6 @@
 <?php
 
-namespace Tc\JOSE\Jwa;
+namespace Tc\JOSE\JWA;
 
 /**
  * Class ES

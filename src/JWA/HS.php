@@ -2,8 +2,6 @@
 
 namespace Tc\JOSE\JWA;
 
-use Tc\JOSE\Exception\JWAException;
-
 /**
  * Class HS
  * @package Tc\JOSE\JWA
