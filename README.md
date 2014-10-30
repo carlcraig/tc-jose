@@ -57,6 +57,8 @@ Decoding a Serialized JWT *(JWS or JWE)*
 ----------------------------------------
 
 ```php
+<?php
+
 use Tc\JOSE\JWT;
 use Tc\JOSE\JWS;
 
