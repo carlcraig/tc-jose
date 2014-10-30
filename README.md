@@ -29,6 +29,8 @@ Creating a JWS
 To create a JWS you would do something like this:
 
 ```php
+<?php
+
 use Tc\JOSE\JWS;
 
 // ...
