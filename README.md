@@ -57,7 +57,7 @@ $jws->setIssuedAt();
 // Set Expires for 1 hour
 $jws->setExpires(3600);
 
-// Sign the JWS (Can use any of the supported algorithms e.g. HS256, RS512, None, ES384 etc)
+// Sign the JWS (Can use any of the supported algorithms)
 $jws->sign('HS256', 'SecretKeyHere');
 
 // Serialize the JWS to be transported
