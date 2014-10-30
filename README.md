@@ -22,6 +22,14 @@ You could also run:
 $ php composer.phar require tc/jose "dev-master"
 ```
 
+Supported Algorithms
+--------------------
+
+- None
+- HS256, HS384, HS512
+- RS256, RS384, RS512
+- ES256, ES384, ES512
+
 
 Creating a JWS
 --------------
@@ -38,7 +46,18 @@ use Tc\JOSE\JWS;
 // Create a new JWS
 $jws = new JWS();
 
-// Sign the JWS
+// Add some data to the payload
+$jws->setPayload(array(
+    'user' => 'SomeUser'
+));
+
+// Set Issued At Claim
+$jws->setIssuedAt();
+
+// Set Expires for 1 hour
+$jws->setExpires(3600);
+
+// Sign the JWS (Can use any of the supported algorithms e.g. HS256, RS512, None, ES384 etc)
 $jws->sign('HS256', 'SecretKeyHere');
 
 // Serialize the JWS to be transported
@@ -89,6 +108,39 @@ try {
 
 // ...
 
+```
+
+Using RS or ES Algorithms
+-------------------------
+
+#### Create the keys with openssl
+
+You can adjust the format for creating the keys to work with ES or RS.
+
+```sh
+$ openssl genrsa -out private.pem -aes256 4096
+$ openssl rsa -pubout -in private.pem -out public.pem
+```
+
+#### Signing a JWS
+
+```php
+<?php
+
+// ...
+$jws = new JWS();
+$jws->sign('RS256', openssl_pkey_get_private('path/to/privatekey.pem', 'passphrase'));
+// ...
+```
+
+#### Validate a JWS
+
+```php
+<?php
+
+// ...
+$jws->validate(openssl_pkey_get_public('path/to/publickey.pem'));
+// ...
 ```
 
 
