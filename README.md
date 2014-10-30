@@ -143,6 +143,11 @@ $jws->validate(openssl_pkey_get_public('path/to/publickey.pem'));
 // ...
 ```
 
+TODO
+----
+
+Implement JWE and JWK specifications.
+
 
 License
 -------
