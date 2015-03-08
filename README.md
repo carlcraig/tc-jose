@@ -5,7 +5,7 @@ Tc JOSE
 [![Build Status](https://travis-ci.org/carlcraig/tc-jose.svg?branch=master)](https://travis-ci.org/carlcraig/tc-jose)
 [![Latest Stable Version](https://poser.pugx.org/tc/jose/v/stable.svg)](https://packagist.org/packages/tc/jose)
 
-#### A Javascript Object Signing and Encryption Library
+##### A Javascript Object Signing and Encryption Library
 
 
 Installation
