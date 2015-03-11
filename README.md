@@ -1,8 +1,8 @@
 Tc JOSE
 =======
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/15b43357-e245-48e7-bf91-635160ca41be/small.png)](https://insight.sensiolabs.com/projects/15b43357-e245-48e7-bf91-635160ca41be)
 [![Build Status](https://travis-ci.org/carlcraig/tc-jose.svg?branch=master)](https://travis-ci.org/carlcraig/tc-jose)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/15b43357-e245-48e7-bf91-635160ca41be/mini.png)](https://insight.sensiolabs.com/projects/15b43357-e245-48e7-bf91-635160ca41be)
 [![Latest Stable Version](https://poser.pugx.org/tc/jose/v/stable.svg)](https://packagist.org/packages/tc/jose)
 
 ##### A Javascript Object Signing and Encryption Library
